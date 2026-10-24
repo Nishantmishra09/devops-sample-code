@@ -1,0 +1,25 @@
+# Exercise 9 command checklist
+
+# Run inside the project directory
+python3 --version
+python3 -m venv .venv
+# Git Bash on Windows:
+source .venv/Scripts/activate
+python -m pip install -r requirements.txt
+python -m unittest discover -s . -p "test_*.py" -v
+
+# Git: run in your existing repo if one already exists
+git status
+git add app.py requirements.txt test_app.py Jenkinsfile .gitignore README.md JENKINS_DOCKER_SETUP.md SUBMISSION_REPORT_TEMPLATE.md
+git commit -m "Add Python multi-stage Jenkins pipeline"
+git push
+
+# Inspect Jenkins container
+docker ps
+docker exec -it -u root <container-name> bash
+
+# Inside container (temporary installation)
+apt-get update
+apt-get install -y python3 python3-pip python3-venv git
+python3 --version
+exit
